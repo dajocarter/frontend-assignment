@@ -28,13 +28,13 @@ export default function Button (props) {
   )
 }
 Button.propTypes = {
-  theme: oneOf(['primary', 'secondary']),
+  theme: oneOf(['primary', 'secondary']).isRequired,
   type: string,
-  value: string
+  value: string.isRequired
 }
 
 const StyledButton = styled.button`
-  font-family: 'Inter';
+  font-family: 'Inter', Arial;
   font-weight: 700;
   font-size: 16px;
   line-height: 26px;
