@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import Button from '../button'
 import CheckboxInput from './checkbox'
-import FormInput from './input'
+import TextInput from './input'
 import eonCarImg from '../../images/eon-car.svg'
 import checkmarkImg from '../../images/checkmark.svg'
 
@@ -92,7 +92,7 @@ export default function SignupForm () {
     <Content>
       <PageTitle>Let's sign you up for Timescale Cloud</PageTitle>
       <StyledForm name='signup' onSubmit={handleSubmit}>
-        <FormInput
+        <TextInput
           type='text'
           name='email'
           label='Email address'
@@ -100,7 +100,7 @@ export default function SignupForm () {
           onChange={handleInputChange}
           error={formErrors['email']}
         />
-        <FormInput
+        <TextInput
           type='password'
           name='password'
           label='Create password'
@@ -138,7 +138,7 @@ function ConfirmationMessage () {
 const Content = styled.div`
   box-sizing: border-box;
   background-color: #F7F8F8;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,7 +160,7 @@ const SuccessMessage = styled.p`
 `
 
 const PageTitle = styled.h1`
-  font-family: 'Inter';
+  font-family: 'Inter', Arial;
   text-align: center;
   margin: 0 0 32px;
 `

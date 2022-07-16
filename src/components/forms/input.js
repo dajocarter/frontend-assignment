@@ -1,7 +1,11 @@
-import { func, string } from "prop-types"
+import { func, oneOf, string } from "prop-types"
 import styled from "styled-components"
 
-export default function FormInput (props) {
+/**
+ * Handles text-based inputs in a form
+ */
+
+export default function TextInput (props) {
   return (
     <InputWrapper>
       <StyledLabel htmlFor={props.name}>{props.label}</StyledLabel>
@@ -18,13 +22,34 @@ export default function FormInput (props) {
     </InputWrapper>
   )
 }
-FormInput.propTypes = {
-  type: string,
-  name: string,
+TextInput.propTypes = {
+  /**
+   * Choose the type for the input
+   */
+  type: oneOf(['text', 'email', 'password', 'search', 'tel', 'url']),
+  /**
+   * Provide a unique name for the input field
+   */
+  name: string.isRequired,
+  /**
+   * Provide a label for the input field
+   */
   label: string,
+  /**
+   * Provide a placeholder text for the input field
+   */
   placeholder: string,
+  /**
+   * A function to handle input changing in the field
+   */
   onChange: func,
+  /**
+   * Provide a message for the error state
+   */
   error: string
+}
+TextInput.defaultProps = {
+  type: 'text'
 }
 
 export const InputWrapper = styled.div`
@@ -43,7 +68,7 @@ const StyledInput = styled.input`
   background-color: #FFFFFF;
   border: ${props => props.isInvalid ? '2px solid #F54545' : '1px solid #898E9A'};
   border-radius: 2px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial;
   padding: 12px 16px;
   width: 100%;
 `

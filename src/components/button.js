@@ -20,6 +20,10 @@ const themes = {
   secondary: secondaryTheme
 }
 
+/**
+ * Themed button element
+ */
+
 export default function Button (props) {
   return (
     <ThemeProvider theme={themes[props.theme]}>
@@ -28,9 +32,23 @@ export default function Button (props) {
   )
 }
 Button.propTypes = {
+  /**
+   * Choose a theme for the button.
+   * Primary is gold, secondary is blue.
+   */
   theme: oneOf(['primary', 'secondary']).isRequired,
-  type: string,
+  /**
+   * Choose the type attribute for the button
+   */
+  type: oneOf(['button', 'submit']),
+  /**
+   * Provide the text for the button
+   */
   value: string.isRequired
+}
+Button.defaultProps = {
+  theme: 'primary',
+  type: 'button'
 }
 
 const StyledButton = styled.button`
